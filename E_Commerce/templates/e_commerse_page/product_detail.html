@@ -1,0 +1,115 @@
+{% extends 'base.html' %} {% block content %}
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-4">
+    <div
+      id="carouselExampleIndicators"
+      class="carousel slide"
+      data-ride="carousel"
+      style="width: 400px"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            class="d-block w-100"
+            src="{{ product_view.image.url }}"
+            alt="Первый слайд"
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            class="d-block w-100"
+            src="{{ product_view.image_2.url }}"
+            alt="Второй слайд"
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            class="d-block w-100"
+            src="{{ product_view.image_3.url }}"
+            alt="Третий слайд"
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            class="d-block w-100"
+            src="{{ product_view.image_4.url }}"
+            alt="Четвертый слайд"
+          />
+        </div>
+      </div>
+      <a
+        class="carousel-control-prev"
+        href="#carouselExampleIndicators"
+        role="button"
+        data-slide="prev"
+        style="background-color: #ed072a; width: 25px"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a
+        class="carousel-control-next"
+        href="#carouselExampleIndicators"
+        role="button"
+        data-slide="next"
+        style="background-color: #ed072a; width: 25px"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <h3></h3>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div id="hidden" style="display: none">
+        <select name="user">
+          <option value="{{ user.username }}">{{ user.username }}</option>
+        </select>
+        <select name="name_product">
+          <option value="{{ product_view.name_product }}">
+            {{ product_view.name_product }}
+          </option>
+        </select>
+        <select name="price">
+          <option>{{ product_view.price }}</option>
+        </select>
+        <select name="description" style="width: 30px">
+          <option>{{ product_view.description }}</option>
+        </select>
+      </div>
+      <hr />
+      <div class="form-group p-l-2">
+        <label>Выберите размер товара :</label><br />
+        <select class="form-select" name="size">
+          {% for product in product_view.size.all%}
+          <option value="{{ product }}">{{ product }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <hr />
+      <div class="form-group p-l-2">
+        <label>Выберите цвет товара :</label><br />
+        <select class="form-select" name="сolor">
+          {% for product in product_view.сolor.all%}
+          <option value="{{ product }}">{{ product }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <hr />
+      <div class="form-group p-l-2">
+        <label>Введите кол-во товара :</label><br />
+        <input type="number" name="kol" />
+      </div>
+      <hr />
+      {% if user.is_authenticated %}
+      <button type="submit" class="btn btn-danger">Добавить в корзину</button
+      ><br />
+      {% endif %}
+    </form>
+  </div>
+  <div class="col-md-2"></div>
+</div>
+{% endblock content %}

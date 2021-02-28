@@ -1,0 +1,70 @@
+body{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.15em;
+    font-weight: bold;
+    display: flex;
+    align-items:center;
+    flex-direction: column;
+}
+a{
+    text-decoration: none;
+    color:rgba(11, 105, 228, 0.89);
+}
+::-webkit-input-placeholder {
+    color:black;
+  }
+::-moz-placeholder { /* Firefox 19+ */
+    color:black;
+  }
+:-ms-input-placeholder {
+    color:black;
+  }
+:-moz-placeholder { /* Firefox 18- */
+    color:black;
+  }
+input{
+    color:black;
+    width: 100%;
+    height: 27px;
+    border-radius: 7px;
+    background-color:rgba(11, 105, 228, 0.89);
+    border:0.5px solid rgba(0, 0, 0, 0.616);
+}
+input:hover{
+    transition: 1s;
+    background-color:rgba(228, 11, 58, 0.89);
+    border:0.5px solid rgba(0, 0, 0, 0);
+}
+a:hover{
+    transition: 1s;
+    color:rgba(228, 11, 58, 0.89);
+}
+
+button{
+    height: 27px;
+    width: 70px;
+    background-color: rgba(11, 105, 228, 0.89);
+    border:rgba(116, 0, 233, 0);
+    border-radius: 5px;
+    margin-left:37%;
+}
+#p{
+    display: flex;
+}
+.checkbox{
+    height:20px;
+    width: 10%;
+}
+button:hover{
+    transition: 1s; 
+    background-color: rgba(228, 11, 58, 0.89);
+}
+
+#close{
+    margin-left:0%;
+}
+#sign{
+    width: 30%;
+}
+
+

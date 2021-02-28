@@ -1,0 +1,1 @@
+default_app_config = "Mens_business_clothing.apps.MensBusinessClothingConfig"

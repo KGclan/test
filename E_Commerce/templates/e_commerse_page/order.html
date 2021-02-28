@@ -1,0 +1,32 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-12 mt-5 mb-5">
+      <center>
+        <form method="post">
+          {% csrf_token %}
+          <div id="hidden" style="display: none">
+            <select name="user">
+              <option value="{{ user.id }}">{{ user.username }}</option>
+            </select>
+            <p>
+              <textarea name="order" cols="100" readonly>
+{% for basket in basket_list %}Название предмета :{{ basket.name_product }},кол-во предметов:{{ basket.kol }},размер:{{ basket.size }}   ,   {% endfor %}</textarea
+              >
+            </p>
+          </div>
+          <div class="form-group p-l-2">
+            <label
+              >Введите адрес на который должна осуществится доставка :</label
+            ><br />
+            <input type="text" name="adress" style="width: 400px" />
+          </div>
+          <hr />
+          <button type="submit" class="btn btn-danger">Сделать заказ</button
+          ><br />
+        </form>
+      </center>
+    </div>
+  </div>
+</div>
+{% endblock content%}

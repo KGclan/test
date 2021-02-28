@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- ========================= SECTION INTRO ========================= -->
+<section class="section-intro">
+
+<div class="intro-banner-wrap">
+	<img src='../../static/images/banner.jpg' class="w-100 img-fluid">
+</div>
+
+</section>
+<!-- ========================= SECTION INTRO END// ========================= -->
+<!-- ========================= SECTION SPECIAL ========================= -->
+<section class="section-specials padding-y border-bottom">
+<div class="container">
+<div class="row">
+<div class="col-md-4">
+			<figure class="itemside">
+				<div class="aside">
+					<span class="icon-sm rounded-circle bg-primary">
+						<i class="fas fa-receipt"></i>
+					</span>
+				</div>
+				<figcaption class="info">
+					<h6 class="title">Низкие цены</h6>
+					<p class="text-muted">Одним из приимуществ нашего интернет магазина являются доступные для каждого покупателя цены </p>
+				</figcaption>
+			</figure> <!-- iconbox // -->
+	</div><!-- col // -->
+	<div class="col-md-4">
+			<figure class="itemside">
+				<div class="aside">
+					<span class="icon-sm rounded-circle bg-danger">
+						<i class="fas fa-dna"></i>
+					</span>
+				</div>
+				<figcaption class="info">
+					<h6 class="title">Техническая поддержка </h6>
+					<p class="text-muted">Наша техническая поддержка работает 24/7 без выходных </p>
+				</figcaption>
+			</figure> <!-- iconbox // -->
+	</div><!-- col // -->
+	<div class="col-md-4">
+			<figure class="itemside">
+				<div class="aside">
+					<span class="icon-sm rounded-circle bg-success">
+						<i class="fa fa-truck white"></i>
+					</span>
+				</div>
+				<figcaption class="info">
+					<h6 class="title">Быстрая доставка</h6>
+					<p class="text-muted">Еще одним приимуществом нашего интернет магазина является быстрая и своевременная доставка товара </p>
+				</figcaption>
+			</figure> <!-- iconbox // -->
+	</div><!-- col // -->
+</div> <!-- row.// -->
+
+</div> <!-- container.// -->
+</section>
+<!-- ========================= SECTION SPECIAL END// ========================= -->
+<!-- ========================= SECTION  ========================= -->
+<section class="section-name  padding-y-sm">
+<div class="container">
+<header class="section-heading">
+	<a href="{% url 'index' %}" class="btn btn-outline-primary float-right">Смотреть все</a>
+	<h3 class="section-title">Товары</h3>
+</header><!-- sect-heading -->
+<div class="row">
+    {% for product in product_list %}
+		{% if product.subcategories.pk == subcategory_views.pk %}
+			<div class="col-md-3">
+				<div href="#" class="card card-product-grid">
+					<a href="/{{ product.slug }}/" class="img-wrap"> <img src="{{ product.image.url }}"> </a>
+					<figcaption class="info-wrap">
+						<a href="/{{ product.slug }}/" class="title">{{ product.name_product }}</a>
+						<div class="price mt-1">{{ product.price }} руб.</div> <!-- price-wrap.// -->
+					</figcaption>
+				</div>
+		</div> <!-- col.// -->
+    	{% endif %}
+	{% endfor %}
+</div> <!-- row.// -->
+</div><!-- container // -->
+</section>
+<!-- ========================= SECTION  END// ========================= -->
+{% endblock content %}

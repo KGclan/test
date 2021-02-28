@@ -1,0 +1,9 @@
+.card-product-grid{
+    transition-duration: 2s;
+}
+.card-product-grid:hover{
+    filter: drop-shadow(0 0 0.75rem #409fed);
+}
+.card-product-grid .title{
+    font-weight: 600;
+}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/sign1.css' %}" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <title>{% block head_title %}{% endblock %}</title>
+    {% block extra_head %} {% endblock %}
+  </head>
+  <body>
+    {% block body %} {% if messages %}
+    <div></div>
+    {% endif %} {% block content %} {% endblock %} {% endblock %}
+  </body>
+</html>
